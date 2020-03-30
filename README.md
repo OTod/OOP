@@ -12,7 +12,12 @@ REMINDERS:
 // todo pool
 // ++ add server to avoid CORS restrictions for local testing
 // ++ add git
+// -- fix readme.md to suit github format
+// -- add html support to modules
 // -- aliasing for modules loading
 // -- define structure for main modules - element, and elementContainer(need html and styling)
+ // ++ add basic element 
+ // -- add basic model
+    // -- add caching to requests in model 
 // -- define main modules functionality
 // -- practise MVC patterns in JS
