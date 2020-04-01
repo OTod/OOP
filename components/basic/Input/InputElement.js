@@ -8,10 +8,5 @@ export default class Input extends Element{
     this.setAttributes(this.params);
   }
   params = {};
-  // template = `<input 
-  // type="${this.params.type}"
-  // placeholder="${this.params.placeholder}"
-  // src="${this.params.src}"
-  // >`
 
 }

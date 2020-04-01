@@ -17,7 +17,11 @@ REMINDERS:
 // -- aliasing for modules loading
 // -- define structure for main modules - element, and elementContainer(need html and styling)
  // ++ add basic element 
+ // -- add basic container/holder
  // -- add basic model
     // -- add caching to requests in model 
+    // -- move basic elements to core
+    // -- add style support for all the elements
+// -- distinguish element from container
 // -- define main modules functionality
 // -- practise MVC patterns in JS
