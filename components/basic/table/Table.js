@@ -1,4 +1,4 @@
-import Element from "../element/Element.js";
+import ContainerElement from "../core/ContainerElement/ContainerElement.js";
 
 
 /*
@@ -18,7 +18,7 @@ todo: filters? common data source? twoway binding?
 
 */
 
-export default class Table extends Element{
+export default class Table extends ContainerElement{
   constructor(initialData){
     super("table");
     this.options = initialData;
@@ -28,17 +28,17 @@ export default class Table extends Element{
   options = null;
   
   buildTable(){
-    let headerRow = new Element("tr"); //todo: refactor, no need for instantiating elements for smallest bits 
+    let headerRow = new ContainerElement("tr"); //todo: refactor, no need for instantiating elements for smallest bits 
     this.options.columnHeadings.forEach(element => {
-      let headerCell = new Element("th");
+      let headerCell = new ContainerElement("th");
       headerCell.element.innerHTML = element
       headerRow.addElement(headerCell);
     });
     this.addElement(headerRow);
     this.options.data.forEach(entry => {
-      let dataRow = new Element("tr");
+      let dataRow = new ContainerElement("tr");
       this.options.columnKeys.forEach(key => {
-        let dataCell = new Element("td");
+        let dataCell = new ContainerElement("td");
         dataCell.element.innerHTML = entry[key];
         dataRow.addElement(dataCell);
       })

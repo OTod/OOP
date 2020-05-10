@@ -5,6 +5,19 @@ const router = express.Router();
 
 router.get("/test", (req, res) => {
   res.send("everything works well, for now;");
+  
+})
+
+router.get("/testData", (req,res) => {
+
+  setTimeout(()=>{
+    res.send(JSON.stringify([
+      {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
+      {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
+    ]))
+
+
+  },1000)
 })
 
 

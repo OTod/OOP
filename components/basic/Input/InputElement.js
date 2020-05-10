@@ -1,4 +1,4 @@
-import Element from "../element/Element.js";
+import Element from "../core/element/Element.js";
 
 export default class Input extends Element{
   

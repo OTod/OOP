@@ -1,10 +1,9 @@
 export default class Element {
-  constructor(elType){
+  constructor(elType, initialStyles = {}){
     this.elType = elType ? elType : "div";
     this.element = document.createElement(this.elType);
+    this.resetStyle(initialStyles);
   }
-  children = [];
-  container="";
   elType = "";
   element = null; 
   // template =`<div>${this.container}</div>`;
@@ -14,13 +13,11 @@ export default class Element {
   //   return this.template
   // }
 
+  init(){} // todo
+  render(){} // todo
+
   get element(){
     return this.element;
-  }
-
-  addElement(el){
-    this.children.push(el);
-    this.element.appendChild(el.element)
   }
   
   setAttributes(params = {}){
@@ -29,8 +26,20 @@ export default class Element {
     };
   }
 
-  update(){
-    this.children.every(el => el.update()); // todo - finish function for children update;
+  resetStyle(styles){
+    /*
+    styles in format of 
+    {
+      background: "green",
+      border: "1px solid red"
+    }
+    */
+    let stylesString = Object.entries(styles).map(el=>el.join(": ")).join("; ");
+    this.element.setAttribute("style", stylesString);
+  }
+
+  setProperties(props){
+    this.properties = props; // todo: this should be unified, and updated in all the existing classes
   }
 
 }
