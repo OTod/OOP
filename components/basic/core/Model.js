@@ -32,7 +32,7 @@ export default class Model{
     xhr.open("GET", url);
     xhr.onload = function(){
       if(this.status === 200 && this.status < 300){
-        resolve(xhr.response);
+        resolve(JSON.parse(xhr.response));
       } else {
         reject(xhr.statusText);
       };

@@ -6,6 +6,11 @@ module.exports = [
   "basic/core/Element.js",
   "basic/core/Model.js",
   "basic/core/View.js",
+
+  "basic/elements/table/Table.js",
+
+
+
   "modules/testModule/testModule.js",
 ].map(component => {
   return {

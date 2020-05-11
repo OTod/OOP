@@ -1,5 +1,6 @@
 import Model from "../../basic/core/Model.js";
 import Element from "../../basic/core/Element.js";
+import Table from "../../basic/elements/table/Table.js";
 
 export default class testModule extends Element{
   constructor( ){
@@ -12,24 +13,30 @@ export default class testModule extends Element{
     this.add(el);
     // let model = new Model({url: "/api/testData"});
     let model = new Model({url: "/api/testData"});
+    
+    let table = new Table();
+    this.add(table);
+
+    
     model.fetch()
-    .then(data=> {console.log(data)})
+    .then(data=> {
+      table.setData(this.getTableConfig(data));
+    })
     .catch(err => {console.log(err)})
 
-
-    let model2 = new Model({url: "/api/testData"});
-    model2.getData().then(data=> {console.log(data)})
 
   }
   
 
 
 
-  getTableConfig(){ // mock of the table data needed
+  getTableConfig(data){ // mock of the table data needed
     return {
-    columnHeadings: ["columnOneName", "columnTwoName"],  
-    columnKeys:["columnOneKey","columnTwoKey", ""]
-    // data:[
+    columnHeadings: ["Name", "Value", "Year"],  
+    columnKeys:["name","cost", "yearOfIssue"],
+    data
+    
+    // :[
     //   {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
     //   {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
     // ]

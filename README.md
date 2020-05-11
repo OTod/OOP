@@ -27,9 +27,22 @@ modules/ - consist modules project is built with, // per page - per url, todo. -
  // ++ add basic element 
  // -- add basic container/holder
  // -- add basic model
-    // -- add caching to requests in model 
-    // -- move basic elements to core
+    // ++ add caching to requests in model // ++ model is a singleton
+    // make fetch as a private method, getData will call fetch if data is not fetched yet by itself
+    // ++ move basic elements to core
     // -- add style support for all the elements
-// -- distinguish element from container
+// ++ distinguish element from container // ++ element and container are the same
 // -- define main modules functionality
-// -- practise MVC patterns in JS
+// -- practice MVC patterns in JS
+// -- define positioning and styling of elements
+
+
+// -- add form widget
+// -- add two way data binding model-element
+// -- connect formwidget with model
+// -- add save model functionality
+// -- add save model functionality on server
+
+
+// -- clear, analyze architecture, simplify.
+

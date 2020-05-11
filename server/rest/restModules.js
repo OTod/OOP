@@ -12,8 +12,8 @@ router.get("/testData", (req,res) => {
 
   setTimeout(()=>{
     res.send(JSON.stringify([
-      {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
-      {columnOneKey:"columnOneValue", columnTwoKey: "columnTwovalue", columnThreeKey:"columnThreeValue"},
+      {name:"BMW X5", cost: "38000", yearOfIssue:"2005"},
+      {name:"Hyundai Tucson", cost: "25900", yearOfIssue:"2017"},
     ]))
 
 

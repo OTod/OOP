@@ -1,7 +1,6 @@
-import ContainerElement from "../core/ContainerElement/ContainerElement.js";
+import Element from "../../core/Element.js"
 
-
-/*
+/* 
 Ok, so here is the table. 
 There should be some specific format to receive as an input, what about:
 
@@ -17,33 +16,52 @@ There should be some specific format to receive as an input, what about:
 todo: filters? common data source? twoway binding?
 
 */
+const PRIVATE = new WeakMap();
 
-export default class Table extends ContainerElement{
-  constructor(initialData){
+const defaultInitData = {
+  columnHeadings: [],  
+  columnKeys:[],
+  data:[
+    {},
+  ]
+}
+
+export default class Table extends Element{
+  constructor(initialData = defaultInitData){
     super("table");
-    this.options = initialData;
-    this.buildTable();
+
+    PRIVATE.set(this, {initialProperties: initialData, properties: initialData})
+
+    this.renderTable();
   }
   
-  options = null;
+  properties = null;
   
-  buildTable(){
-    let headerRow = new ContainerElement("tr"); //todo: refactor, no need for instantiating elements for smallest bits 
-    this.options.columnHeadings.forEach(element => {
-      let headerCell = new ContainerElement("th");
+  renderTable(){
+    const {properties} = PRIVATE.get(this);
+    this.purge();
+    let headerRow = new Element("tr"); //todo: refactor, no need for instantiating elements for smallest bits 
+    properties.columnHeadings.forEach(element => {
+      let headerCell = new Element("th");
       headerCell.element.innerHTML = element
-      headerRow.addElement(headerCell);
+      headerRow.add(headerCell);
     });
-    this.addElement(headerRow);
-    this.options.data.forEach(entry => {
-      let dataRow = new ContainerElement("tr");
-      this.options.columnKeys.forEach(key => {
-        let dataCell = new ContainerElement("td");
+    this.add(headerRow);
+    properties.data.forEach(entry => {
+      let dataRow = new Element("tr");
+      properties.columnKeys.forEach(key => {
+        let dataCell = new Element("td");
         dataCell.element.innerHTML = entry[key];
-        dataRow.addElement(dataCell);
+        dataRow.add(dataCell);
       })
-      this.addElement(dataRow);
+      this.add(dataRow);
     })
+  }
+
+  setData(properties) {
+    const props = PRIVATE.get(this);
+    PRIVATE.set(Object.assign(props,{properties}))
+    this.renderTable();
   }
 
 }
