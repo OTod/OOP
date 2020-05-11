@@ -1,5 +1,5 @@
 import testModule from "./testModule/testModule.js"
-import Element from"./basic/core/element/Element.js"
+import Element from"../basic/core/Element.js"
 
 export default class Main extends Element{
   constructor(){

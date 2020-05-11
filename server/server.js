@@ -20,9 +20,11 @@ function server(){
     next();
   })
   
+  console.log(modules)
   modules.forEach(componentPathObject => {
     let route = Object.keys(componentPathObject)[0];
     let filePath = componentPathObject[route];
+    
     router.get(`/${route}`,(req, res)=>{
       res.sendFile(filePath)
     })

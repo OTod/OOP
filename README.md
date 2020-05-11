@@ -9,6 +9,14 @@ REMINDERS:
  - when importing a module in files, use full relative paths to the files, and file extensions as well - in ex.: "./moduleFolderPath/ModuleName.js"
 
 
+
+
+- overall approach:
+basic/core - contains basic classes, providing fundamental logic/functinality.
+basic/elements - contains basic building blocks - elements used to form pages
+basic/custom - custom elements, tbd?
+modules/ - consist modules project is built with, // per page - per url, todo. - as per SPA paradigm
+
 // todo pool
 // ++ add server to avoid CORS restrictions for local testing
 // ++ add git
